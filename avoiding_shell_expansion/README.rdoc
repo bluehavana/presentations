@@ -1,0 +1,24 @@
+= Spawn
+
+== C Shell Expansion Command Line Injection Avoidance
+
+Description:  Launches command in executable_path with full access to stdin, stdout and stderr.
+Uses execve to copy arguments to argv of target memory space to avoid shell expansion command
+line injection.
+
+<tt>int spawn( const char *executable_path, char *const args[], char *const env[],
+		int *arg_stdin_fd, int *arg_stdout_fd, int *arg_stderr_fd,
+		pid_t *child_pid )</tt>
+
+Spawns a process through fork/execve with access to the file descriptors specified by
+arg_stdin_fd, arg_stdout_fd and arg_stderr_fd.  You write to arg_stdin_fd to write to the process'
+stdin and read from arg_stdout_fd/arg_stderr_fd to read from those file descriptors.
+Only tested in Cygwin with compile errors.  Not production ready, needs about 10 more refactorings
+to be production ready.
+
+== Changelog
+
+* Version 0.0 Launched for San Antonio Hackers Association June meeting.
+
+
+
