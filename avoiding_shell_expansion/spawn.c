@@ -9,7 +9,7 @@
 * Uses execve to copy arguments to argv of target memory space to avoid shell expansion command
 * line injection.
 *
-* http:
+* http://github.com/bluehavana/presentations/
 */
 
 #include <sys/types.h>
